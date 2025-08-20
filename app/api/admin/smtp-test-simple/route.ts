@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import * as nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
 
     console.log('🔧 Configuração do transporter (simples):', transporterConfig)
 
-    const transporter = nodemailer.createTransporter(transporterConfig)
+    const transporter = nodemailer.createTransport(transporterConfig)
 
     // E-mail com configuração mínima e máxima entregabilidade
     const mailOptions = {

@@ -13,7 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Save, Upload } from "lucide-react"
 import { toast } from "@/hooks/use-toast"
-import { uploadUserAvatar, getFileNameFromUrl, deleteFile } from "@/lib/storage"
+import { uploadUserAvatar, deletePublicFile } from "@/lib/storage"
 
 export function ProfileForm() {
   const [isLoading, setIsLoading] = useState(true)
@@ -168,8 +168,11 @@ export function ProfileForm() {
 
       // Excluir avatar anterior se existir
       if (formData.avatar_url) {
-        const fileName = getFileNameFromUrl(formData.avatar_url)
-        await deleteFile("user-avatars", fileName)
+        try {
+          await deletePublicFile("user-avatars", formData.avatar_url)
+        } catch (error) {
+          console.warn("Erro ao deletar avatar anterior:", error)
+        }
       }
 
       // Upload do novo avatar

@@ -9,7 +9,7 @@ import { createClientSupabaseClient } from "@/lib/supabase"
 import { Facebook, Instagram, Linkedin, Twitter, Trash2, MapPin, Edit, Loader2, Mail, Youtube, Link as LinkIcon } from "lucide-react"
 import { toast } from "@/hooks/use-toast"
 import { useNotify } from "@/contexts/notification-context"
-import { uploadUnitImage, getFileNameFromUrl, deleteFile } from "@/lib/storage"
+import { uploadUnitImage, deletePublicFile } from "@/lib/storage"
 import { addUnitImage, getPrimaryUnitImage, getMultipleUnitsPrimaryImages, replacePrimaryUnitImage } from "@/lib/unit-images"
 import { DebugSystem } from "@/components/admin/debug-system"
 import { createNotification } from "@/lib/notifications"
@@ -844,8 +844,11 @@ export function SettingsForm() {
 
       // Excluir imagem anterior se não for placeholder
       if (currentUnit.image && !currentUnit.image.includes("placeholder.svg")) {
-        const fileName = getFileNameFromUrl(currentUnit.image)
-        await deleteFile("unit-images", fileName)
+        try {
+          await deletePublicFile("unit-images", currentUnit.image)
+        } catch (error) {
+          console.warn("Erro ao deletar imagem anterior:", error)
+        }
       }
 
       // Upload da nova imagem
