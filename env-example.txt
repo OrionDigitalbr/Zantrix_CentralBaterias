@@ -1,0 +1,14 @@
+# Exemplo de arquivo .env.local
+# Copie este arquivo para .env.local e preencha com seus valores reais
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://seu-projeto.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sua-chave-anonima-aqui
+SUPABASE_SERVICE_ROLE_KEY=sua-chave-service-role-aqui
+
+# IMPORTANTE: 
+# - NEXT_PUBLIC_* são visíveis no cliente
+# - SUPABASE_SERVICE_ROLE_KEY é apenas para o servidor
+# - Nunca exponha SUPABASE_SERVICE_ROLE_KEY no cliente
+
+# Após criar o arquivo, reinicie o servidor Next.js

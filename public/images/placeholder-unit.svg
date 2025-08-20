@@ -1,0 +1,8 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3f4f6"/>
+  <rect x="50" y="50" width="500" height="300" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2"/>
+  <circle cx="200" cy="150" r="30" fill="#9ca3af"/>
+  <polygon points="150,200 200,150 250,200 300,180 350,220 350,250 150,250" fill="#9ca3af"/>
+  <text x="300" y="200" font-family="Arial, sans-serif" font-size="24" fill="#6b7280" text-anchor="middle">Unidade</text>
+  <text x="300" y="230" font-family="Arial, sans-serif" font-size="16" fill="#9ca3af" text-anchor="middle">Imagem não disponível</text>
+</svg>
