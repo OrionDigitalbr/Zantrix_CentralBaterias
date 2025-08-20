@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { createAdminSupabaseClient } from "@/lib/supabase-admin"
 
 // devolve: produto, todas as categorias, ids selecionados, todas unidades e ids selecionados
-export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params
     const supabase = createAdminSupabaseClient()

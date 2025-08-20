@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { createServerSupabaseClient } from "@/lib/supabase"
 
 export async function GET() {
@@ -25,7 +25,7 @@ export async function GET() {
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   console.log('💾 [SETTINGS API] POST - Salvando configurações...')
   
   try {
@@ -70,7 +70,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function PUT(request: Request) {
+export async function PUT(request: NextRequest) {
   console.log('🔄 [SETTINGS API] PUT - Atualizando configurações em lote...')
   
   try {

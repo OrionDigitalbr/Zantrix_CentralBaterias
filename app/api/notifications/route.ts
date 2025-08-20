@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { getNotifications, getUnreadNotifications, createNotification, markAllNotificationsAsRead } from "@/lib/db"
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const userId = Number.parseInt(searchParams.get("userId") || "0")
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const notification = await createNotification(body)
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function PATCH(request: Request) {
+export async function PATCH(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const userId = Number.parseInt(searchParams.get("userId") || "0")

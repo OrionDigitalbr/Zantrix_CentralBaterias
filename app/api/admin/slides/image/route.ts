@@ -1,6 +1,6 @@
 export const runtime = "nodejs";
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createAdminSupabaseClient } from "@/lib/supabase-admin";
 
 /**
@@ -9,7 +9,7 @@ import { createAdminSupabaseClient } from "@/lib/supabase-admin";
  * - path é o caminho dentro do bucket (ex.: "slides/desktop-...jpg")
  * - se não vier path, tenta extrair de url
  */
-export const DELETE = async (req: Request) => {
+export const DELETE = async (req: NextRequest) => {
   try {
     const body = await req.json().catch(() => ({}));
     const slideId = Number(body.slideId);

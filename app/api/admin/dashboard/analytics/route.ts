@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server"
 import { createServerSupabaseClient } from '@/lib/supabase'
 
 interface DashboardAnalytics {
@@ -19,7 +19,7 @@ interface DashboardAnalytics {
   period_label: string
 }
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     console.log('📊 [DASHBOARD ANALYTICS] Buscando dados...')
 

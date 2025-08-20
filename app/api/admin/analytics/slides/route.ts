@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server"
 import { createServerSupabaseClient } from '@/lib/supabase'
 
 interface SlideAnalytics {
@@ -28,7 +28,7 @@ interface SlideAnalytics {
   }
 }
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     console.log('🎠 [SLIDES ANALYTICS API] Iniciando busca de dados...')
     

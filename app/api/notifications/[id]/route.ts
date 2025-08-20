@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { markNotificationAsRead, deleteNotification } from "@/lib/db"
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const id = Number.parseInt(params.id)
     const notification = await markNotificationAsRead(id)
@@ -12,7 +12,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const id = Number.parseInt(params.id)
     await deleteNotification(id)

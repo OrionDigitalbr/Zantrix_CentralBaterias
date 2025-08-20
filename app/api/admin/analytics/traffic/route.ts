@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server"
 import { createServerSupabaseClient } from '@/lib/supabase'
 
 interface TrafficAnalytics {
@@ -31,7 +31,7 @@ interface TrafficAnalytics {
   }
 }
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     console.log('🚦 [TRAFFIC ANALYTICS API] Iniciando busca de dados...')
 

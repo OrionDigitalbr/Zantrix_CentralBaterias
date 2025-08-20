@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createAdminSupabaseClient } from "@/lib/supabase-admin";
 import { deletePublicFile } from "@/lib/storage";
 
@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 const BUCKET = "product-images";
 
 export async function DELETE(
-  _req: Request,
+  _req: NextRequest,
   { params }: { params: Promise<{ id: string; imageId: string }> }
 ) {
   try {

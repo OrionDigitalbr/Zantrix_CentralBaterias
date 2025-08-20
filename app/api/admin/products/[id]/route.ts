@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { createAdminSupabaseClient } from "@/lib/supabase-admin"
 
 export const runtime = "nodejs" // importante p/ service role
 
-export const PUT = async (req: Request, ctx: { params: Promise<{ id: string }> }) => {
+export const PUT = async (req: NextRequest, ctx: { params: Promise<{ id: string }> }) => {
   try {
     const { id } = await ctx.params // ✅ aguarde o params
     const supabase = createAdminSupabaseClient()

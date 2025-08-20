@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { createAdminSupabaseClient } from "@/lib/supabase-admin"
 
 export const runtime = "nodejs" // importante p/ service role
 
-export const POST = async (req: Request) => {
+export const POST = async (req: NextRequest) => {
   try {
     const form = await req.formData()
     const file = form.get("file") as File | null
